@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.alif.metlife.Alif_2221079.ClientClaimController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="548.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientClaimController">
+   <children>
+      <Label layoutX="281.0" layoutY="22.0" prefHeight="40.0" prefWidth="292.0" style="-fx-border-color: purple;" text=" Submit Insurance Claim">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="200.0" layoutY="115.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Claim Type">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="claimTypeComboBox" layoutX="491.0" layoutY="117.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="200.0" layoutY="173.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Phone Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNumberTextField" layoutX="493.0" layoutY="175.0" />
+      <Label alignment="CENTER" layoutX="210.0" layoutY="287.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Incident Details">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="detailsTextArea" layoutX="491.0" layoutY="228.0" prefHeight="146.0" prefWidth="308.0" />
+      <Button layoutX="385.0" layoutY="440.0" mnemonicParsing="false" onAction="#claimButtonOnAction" prefHeight="40.0" prefWidth="85.0" style="-fx-border-color: green;" text="Claim">
+         <font>
+            <Font name="SansSerif Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="732.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-border-color: red;" text="Back">
+         <font>
+            <Font name="SansSerif Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
