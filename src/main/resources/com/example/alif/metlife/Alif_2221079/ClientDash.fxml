@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientDashController">
+   <children>
+      <Label layoutX="360.0" layoutY="34.0" text="Policy Holder">
+         <font>
+            <Font name="Courier New Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="434.0" layoutY="81.0" prefHeight="27.0" prefWidth="94.0" style="-fx-border-color: black;" text="Dashboard">
+         <font>
+            <Font name="Courier New Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="107.0" layoutY="152.0" mnemonicParsing="false" onAction="#browseButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Browse And Purchase Plans">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+
+      <Line endX="5.0" endY="249.0" layoutX="481.0" layoutY="152.0" startX="5.0" />
+      <Button layoutX="624.0" layoutY="152.0" mnemonicParsing="false" onAction="#paymentButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Make Premium Payments">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="107.0" layoutY="221.0" mnemonicParsing="false" onAction="#claimButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Submit Insurance Claims">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="624.0" layoutY="221.0" mnemonicParsing="false" onAction="#documentsButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Access and View Policy Documents">
+         <font>
+            <Font name="Georgia Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="107.0" layoutY="286.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Update Profile">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="624.0" layoutY="285.0" mnemonicParsing="false" onAction="#beneficiaryButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Update Beneficiary Information">
+         <font>
+            <Font name="Georgia Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="107.0" layoutY="355.0" mnemonicParsing="false" onAction="#appointmentButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Appointment with Agent">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="624.0" layoutY="355.0" mnemonicParsing="false" onAction="#trackButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: purple;" text="Track Support Request">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="366.0" layoutY="512.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="39.0" prefWidth="242.0" style="-fx-border-color: red;" text="Logout" textFill="#cd1111">
+         <font>
+            <Font name="Georgia Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
