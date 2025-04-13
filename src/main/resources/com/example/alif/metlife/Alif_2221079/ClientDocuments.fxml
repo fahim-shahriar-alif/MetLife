@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientPolicyDocumentsController">
+    <children>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.alif.metlife.Alif_2221079.ClientDocumentsController"
-            prefHeight="400.0" prefWidth="600.0">
+        <!-- Header -->
+        <Label layoutX="240.0" layoutY="20.0" text="Policy Documents and Coverage Details" style="-fx-border-color: purple;">
+            <font>
+                <Font name="Sarabun ExtraBold" size="24.0" />
+            </font>
+        </Label>
 
+        <!-- Policy Certificate Section -->
+        <Label layoutX="60.0" layoutY="80.0" text="Policy Certificate" style="-fx-underline: true; -fx-font-weight: bold;" />
+
+        <Label layoutX="60.0" layoutY="120.0" text="Policy Number:" />
+        <TextField fx:id="policyNumberField" layoutX="180.0" layoutY="115.0" prefWidth="200.0" />
+
+        <Label layoutX="60.0" layoutY="160.0" text="Certificate Name:" />
+        <Label fx:id="certificateNameLabel" layoutX="180.0" layoutY="160.0" />
+
+        <Label layoutX="60.0" layoutY="200.0" text="Issue Date:" />
+        <Label fx:id="issueDateLabel" layoutX="180.0" layoutY="200.0" />
+
+        <Button fx:id="viewCertificateButton" layoutX="60.0" layoutY="240.0" text="View Certificate" onAction="#viewCertificateOnAction" />
+        <Button fx:id="downloadCertificateButton" layoutX="200.0" layoutY="240.0" text="Download" onAction="#downloadCertificateOnAction" />
+
+        <!-- Coverage Details Section -->
+        <Label layoutX="450.0" layoutY="80.0" text="Coverage Details" style="-fx-underline: true; -fx-font-weight: bold;" />
+
+        <Label layoutX="450.0" layoutY="120.0" text="Coverage Type:" />
+        <Label fx:id="coverageTypeLabel" layoutX="600.0" layoutY="120.0" />
+
+        <Label layoutX="450.0" layoutY="160.0" text="Coverage Amount:" />
+        <Label fx:id="coverageAmountLabel" layoutX="600.0" layoutY="160.0" />
+
+        <Label layoutX="450.0" layoutY="200.0" text="Term Length:" />
+        <Label fx:id="termLengthLabel" layoutX="600.0" layoutY="200.0" />
+
+        <Button fx:id="viewCoverageButton" layoutX="450.0" layoutY="240.0" text="View Details" onAction="#viewCoverageOnAction" />
+
+        <!-- Back Button -->
+        <Button layoutX="700.0" layoutY="30.0" text="Back" onAction="#backButtonOnAction" style="-fx-border-color: red;" />
+
+    </children>
 </AnchorPane>

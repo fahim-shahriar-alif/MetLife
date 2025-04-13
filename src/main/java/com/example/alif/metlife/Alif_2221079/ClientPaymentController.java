@@ -39,11 +39,18 @@ public class ClientPaymentController {
         });
     }
 
+
+    public void setPlanDetails(ClientBrowseController.Plan selectedPlan) {
+
+        policyNumberTextField.setText("Policy #" + selectedPlan.getPlanName());
+        premiumAmountTextField.setText(selectedPlan.getPremium());
+    }
+
     public void payButtonOnAction(ActionEvent actionEvent) {
         String policyNumber = policyNumberTextField.getText();
         String premium = premiumAmountTextField.getText();
-        String selectedMonth = (String) selectMonthComboBox.getValue();
-        String selectedYear = (String) selectYearComboBox.getValue();
+        String selectedMonth = selectMonthComboBox.getValue();
+        String selectedYear = selectYearComboBox.getValue();
 
         if (policyNumber.isEmpty() || premium.isEmpty() || selectedMonth == null || selectedYear == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

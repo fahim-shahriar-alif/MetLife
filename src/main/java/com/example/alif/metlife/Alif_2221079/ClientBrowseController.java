@@ -9,9 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.Node;
 import javafx.stage.Stage;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 
@@ -37,9 +37,9 @@ public class ClientBrowseController {
     @FXML
     public void initialize() {
         planList.addAll(
-                new Plan("Basic Plan", "500 BDT", "2,00,000 BDT", "10 years"),
-                new Plan("Standard Plan", "800 BDT", "5,00,000 BDT", "15 years"),
-                new Plan("Premium Plan", "1200 BDT", "10,00,000 BDT", "20 years")
+                new Plan("Basic Plan", "500", "2,00,000", "10 years"),
+                new Plan("Standard Plan", "800", "5,00,000", "15 years"),
+                new Plan("Premium Plan", "1200", "10,00,000", "20 years")
         );
 
         planNameColumn.setCellValueFactory(cellData -> cellData.getValue().planNameProperty());
@@ -62,11 +62,22 @@ public class ClientBrowseController {
             alert.setContentText("Please select a plan before purchasing.");
             alert.showAndWait();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Purchase Successful");
-            alert.setHeaderText(null);
-            alert.setContentText("You have successfully purchased: " + selectedPlan.getPlanName());
-            alert.showAndWait();
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ClientPayment.fxml"));
+                Parent root = fxmlLoader.load();
+                ClientPaymentController paymentController = fxmlLoader.getController();
+
+                paymentController.setPlanDetails(selectedPlan);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Make Payment");
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -85,7 +96,6 @@ public class ClientBrowseController {
         }
     }
 
-    // Inner class Plan
     public static class Plan {
         private final StringProperty planName;
         private final StringProperty premium;

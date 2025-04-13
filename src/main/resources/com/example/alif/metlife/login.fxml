@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="456.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.LoginController">
    <children>
       <Label layoutX="247.0" layoutY="84.0" text="Sign in to your account" textFill="#0f611d">
@@ -40,5 +39,6 @@
             <Font name="Songti TC Bold" size="25.0" />
          </font>
       </Label>
+
    </children>
 </AnchorPane>

@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="552.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientBrowseController">
    <children>
       <Label layoutX="326.0" layoutY="40.0" style="-fx-border-color: purple;" text=" Browse and Purchase Plans ">
@@ -18,8 +17,8 @@
       <TableView fx:id="planTableView" layoutX="81.0" layoutY="153.0" prefHeight="258.0" prefWidth="824.0">
         <columns>
           <TableColumn fx:id="planNameColumn" prefWidth="244.0" text="Plan Name" />
-            <TableColumn fx:id="premiumColumnView" prefWidth="176.0" text="Premium" />
-            <TableColumn fx:id="coverageColumnView" prefWidth="206.0" text="Coverage" />
+            <TableColumn fx:id="premiumColumnView" prefWidth="176.0" text="Premium   (BDT)" />
+            <TableColumn fx:id="coverageColumnView" prefWidth="206.0" text="Coverage   (BDT)" />
             <TableColumn fx:id="termColumnView" prefWidth="197.0" text="Term" />
         </columns>
       </TableView>
