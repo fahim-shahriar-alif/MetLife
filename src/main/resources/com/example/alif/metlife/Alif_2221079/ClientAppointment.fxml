@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.alif.metlife.Alif_2221079.ClientAppointmentController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="616.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientAppointmentController">
+   <children>
+      <Label layoutX="245.0" layoutY="19.0" style="-fx-border-color: purple;" text="Schedule and Manage Appointments" textAlignment="CENTER" textFill="#215c30">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="118.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Appointment Date">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="177.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Time Slot">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="234.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Meeting Type">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="appointmentDatePicker" layoutX="235.0" layoutY="120.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="118.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Phone Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNumberTextField" layoutX="736.0" layoutY="118.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="177.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Meeting Notes">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="meetingNotesTextField" layoutX="736.0" layoutY="177.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="234.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Location">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="locationTextField" layoutX="736.0" layoutY="234.0" prefHeight="52.0" prefWidth="164.0" />
+      <Button layoutX="396.0" layoutY="295.0" mnemonicParsing="false" onAction="#addAppointmentButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="Add Appointment" />
+      <Button layoutX="818.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="55.0" style="-fx-border-color: red;" text="Back" />
+      <ComboBox fx:id="timeSlotComboBox" layoutX="235.0" layoutY="179.0" prefHeight="25.0" prefWidth="164.0" />
+      <ComboBox fx:id="meetingTypeComboBox" layoutX="235.0" layoutY="236.0" prefHeight="25.0" prefWidth="164.0" />
+      <Button layoutX="395.0" layoutY="567.0" mnemonicParsing="false" onAction="#viewAppointmentButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="View Appointment" />
+      <TableView fx:id="appointmentTableView" layoutX="8.0" layoutY="337.0" prefHeight="200.0" prefWidth="892.0">
+        <columns>
+          <TableColumn fx:id="appointmentDateTableColumn" prefWidth="108.0" text="Appintment Date" />
+          <TableColumn fx:id="timeSlotTableColumn" prefWidth="107.0" text="Time Slot" />
+            <TableColumn fx:id="meetingTypeTableColumn" prefWidth="117.0" text="Meeting Type" />
+            <TableColumn fx:id="phoneNumberTableColumn" prefWidth="159.0" text="Phone Number" />
+            <TableColumn fx:id="meetingNotesTableColumn" prefWidth="147.0" text="Meeting Notes" />
+            <TableColumn fx:id="locationTableColumn" prefWidth="253.0" text="Location" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
