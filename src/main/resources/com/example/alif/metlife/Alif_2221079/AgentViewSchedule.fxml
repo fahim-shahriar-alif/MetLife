@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewScheduleController">
+   <children>
+      <Label layoutX="360.0" layoutY="34.0" text="Manage Appointments">
+         <font>
+            <Font name="Courier New Bold" size="31.0" />
+         </font>
+      </Label>
+
+      <TableView fx:id="appointmentsTableView" layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0">
+         <columns>
+            <TableColumn fx:id="appointmentIdColumn" prefWidth="100.0" text="Appointment ID" />
+            <TableColumn fx:id="clientNameColumn" prefWidth="150.0" text="Client Name" />
+            <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="timeColumn" prefWidth="150.0" text="Time" />
+            <TableColumn fx:id="purposeColumn" prefWidth="100.0" text="Purpose" />
+            <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+         </columns>
+      </TableView>
+
+      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#newAppointmentButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="New Appointment">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#updateAppointmentButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Update Appointment">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane> 

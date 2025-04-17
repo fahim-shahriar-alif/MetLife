@@ -26,7 +26,6 @@ public class LoginController {
         String password = passwordTextField.getText();
 
         if (username.equals("Client") && password.equals("alif")) {
-
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Alif_2221079/ClientDash.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) usernameTextField.getScene().getWindow();
@@ -35,19 +34,17 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
         }
-
         else if (username.equals("Agent") && password.equals("alif")) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Alif_2221079/ClientDash.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Alif_2221079/AgentDash.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) usernameTextField.getScene().getWindow();
             stage.setTitle("Agent Dash");
             Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
-
-        }else {
+        }
+        else {
             messageLabel.setText("Invalid Username or Password. Please try again.");
         }
-
-
     }
 }

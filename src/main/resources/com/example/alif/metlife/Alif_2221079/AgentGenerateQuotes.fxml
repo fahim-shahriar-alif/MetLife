@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentGenerateQuotesController">
+   <children>
+      <Label layoutX="360.0" layoutY="34.0" text="Generate Insurance Quotes">
+         <font>
+            <Font name="Courier New Bold" size="31.0" />
+         </font>
+      </Label>
+
+      <GridPane layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0" style="-fx-hgap: 10; -fx-vgap: 10;">
+         <children>
+            <Label text="Policy Type" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox promptText="Select Policy Type" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+            <Label text="Coverage Amount" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField promptText="Enter Amount" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2" />
+
+            <Label text="Age" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField promptText="Enter Age" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="2" />
+
+            <Label text="Health Status" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox promptText="Select Health Status" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" />
+
+            <Label text="Payment Frequency" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <ComboBox promptText="Select Frequency" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="2" />
+         </children>
+      </GridPane>
+
+      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#generateQuoteButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Generate Quote">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
+               <font>
+                  <Font name="Georgia Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane> 
