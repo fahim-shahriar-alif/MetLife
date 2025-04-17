@@ -1,5 +1,6 @@
 package com.example.alif.metlife.Alif_2221079;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,112 +10,107 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.util.Random;
 
 public class ClientTrackController {
-    @FXML public TableView<Appointment> appointmentTableView;
-    @FXML public TableColumn<Appointment, String> appointmentDateTableColumn;
-    @FXML public TableColumn<Appointment, String> timeSlotTableColumn;
-    @FXML public TableColumn<Appointment, String> meetingTypeTableColumn;
-    @FXML public TableColumn<Appointment, String> phoneNumberTableColumn;
-    @FXML public TableColumn<Appointment, String> meetingNotesTableColumn;
-    @FXML public TableColumn<Appointment, String> locationTableColumn;
-    @FXML public TableColumn<Appointment, String> statusTableColumn;
 
-    @FXML public ComboBox<String> priorityLevelComboBox;
-    @FXML public TextField detailsTextField;
+    @FXML
+    private ComboBox<String> contactMethodComboBox;
 
-    private final ObservableList<Appointment> appointments = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<String> priorityLevelComboBox;
 
+    @FXML
+    private ComboBox<String> requestTypeComboBox;
 
+    @FXML
+    private TextArea detailsTextArea;
+
+    @FXML
+    private TableView<ObservableList<String>> requestTableView;
+
+    @FXML
+    private TableColumn<ObservableList<String>, String> appointmentDateTableColumn;
+
+    @FXML
+    private TableColumn<ObservableList<String>, String> timeSlotTableColumn;
+
+    @FXML
+    private TableColumn<ObservableList<String>, String> requestTypeTableColumn;
+
+    @FXML
+    private TableColumn<ObservableList<String>, String> contactMethodTableColumn;
+
+    private final String filePath = "support_requests.txt";
+
+    private final String[] timeSlots = {
+            "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+            "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
+    };
+
+    @FXML
     public void initialize() {
-        appointmentDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("appointmentDate"));
-        timeSlotTableColumn.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
-        meetingTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("meetingType"));
-        phoneNumberTableColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        meetingNotesTableColumn.setCellValueFactory(new PropertyValueFactory<>("meetingNotes"));
-        locationTableColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        priorityLevelComboBox.setItems(FXCollections.observableArrayList("High", "Medium", "Low"));
+        contactMethodComboBox.setItems(FXCollections.observableArrayList("Email", "Phone", "SMS"));
+        requestTypeComboBox.setItems(FXCollections.observableArrayList("Policy Inquiry", "Claim Help", "Payment Issue", "Other"));
 
-
-        appointmentTableView.setItems(appointments);
+        appointmentDateTableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(0)));
+        timeSlotTableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(1)));
+        requestTypeTableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(2)));
+        contactMethodTableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(3)));
     }
 
     @FXML
-    public void viewAppointmentButtonOnAction(ActionEvent actionEvent) {
+    public void submitRequestButtonOnAction(ActionEvent event) {
+        String priority = priorityLevelComboBox.getValue();
+        String contactMethod = contactMethodComboBox.getValue();
+        String requestType = requestTypeComboBox.getValue();
+        String details = detailsTextArea.getText();
 
-        appointments.clear();
+        if (priority == null || contactMethod == null || requestType == null || details.isEmpty()) {
+            showAlert("Error", "Please fill in all fields.");
+            return;
+        }
 
-        loadAppointments();
+        Random random = new Random();
+        LocalDate futureDate = LocalDate.now().plusDays(random.nextInt(5) + 1);
+        String randomSlot = timeSlots[random.nextInt(timeSlots.length)];
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(futureDate + "," + randomSlot + "," + requestType + "," + contactMethod);
+            writer.newLine();
+            showAlert("Success", "Support request submitted successfully!");
+            clearFields();
+        } catch (IOException e) {
+            showAlert("Error", "Failed to write to file.");
+        }
     }
 
-    private void loadAppointments() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("appointments.txt"))) {
+    @FXML
+    public void viewRequestButtonOnAction(ActionEvent event) {
+        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(";");
-                if (parts.length == 7) {  // Include status now
-                    Appointment appointment = new Appointment(
-                            parts[0],
-                            parts[1],
-                            parts[2],
-                            parts[3],
-                            parts[4],
-                            parts[5],
-                            parts[6]
-                    );
-                    appointments.add(appointment);
-                }
+                String[] parts = line.split(",");
+                if (parts.length < 4) continue;
+
+                ObservableList<String> row = FXCollections.observableArrayList();
+                row.add(parts[0]); // Appointment Date
+                row.add(parts[1]); // Time Slot
+                row.add(parts[2]); // Request Type
+                row.add(parts[3]); // Contact Method
+
+                data.add(row);
             }
+            requestTableView.setItems(data);
         } catch (IOException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to load appointments.");
-        }
-    }
-
-    @FXML
-    public void requestButtonOnAction(ActionEvent actionEvent) {
-        Appointment selectedAppointment = appointmentTableView.getSelectionModel().getSelectedItem();
-        if (selectedAppointment == null) {
-            showAlert("No Selection", "Please select an appointment first.");
-            return;
-        }
-
-        String priority = priorityLevelComboBox.getValue();
-        String details = detailsTextField.getText().trim();
-
-        if (priority == null || details.isEmpty()) {
-            showAlert("Missing Fields", "Please fill in the priority level and supporting details.");
-            return;
-        }
-
-        saveRequestToFile(selectedAppointment, priority, details);
-
-        priorityLevelComboBox.setValue(null);
-        detailsTextField.clear();
-    }
-
-    private void saveRequestToFile(Appointment appointment, String priority, String details) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("requests.txt", true))) {
-            writer.write(String.join(";",
-                    appointment.getAppointmentDate(),
-                    appointment.getTimeSlot(),
-                    appointment.getMeetingType(),
-                    appointment.getPhoneNumber(),
-                    appointment.getMeetingNotes(),
-                    appointment.getLocation(),
-                    appointment.getStatus(),
-                    priority,
-                    details));
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to save the request.");
+            showAlert("Error", "Could not load support requests.");
         }
     }
 
@@ -133,44 +129,18 @@ public class ClientTrackController {
         }
     }
 
+    private void clearFields() {
+        priorityLevelComboBox.setValue(null);
+        contactMethodComboBox.setValue(null);
+        requestTypeComboBox.setValue(null);
+        detailsTextArea.clear();
+    }
+
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
-
-    public static class Appointment {
-        private final String appointmentDate;
-        private final String timeSlot;
-        private final String meetingType;
-        private final String phoneNumber;
-        private final String meetingNotes;
-        private final String location;
-        private String status;
-
-        public Appointment(String appointmentDate, String timeSlot, String meetingType,
-                           String phoneNumber, String meetingNotes, String location, String status) {
-            this.appointmentDate = appointmentDate;
-            this.timeSlot = timeSlot;
-            this.meetingType = meetingType;
-            this.phoneNumber = phoneNumber;
-            this.meetingNotes = meetingNotes;
-            this.location = location;
-            this.status = status;
-        }
-
-        public String getAppointmentDate() { return appointmentDate; }
-        public String getTimeSlot() { return timeSlot; }
-        public String getMeetingType() { return meetingType; }
-        public String getPhoneNumber() { return phoneNumber; }
-        public String getMeetingNotes() { return meetingNotes; }
-        public String getLocation() { return location; }
-        public String getStatus() { return status; }
-
-        public void setStatus(String status) {
-            this.status = status;
-        }
     }
 }

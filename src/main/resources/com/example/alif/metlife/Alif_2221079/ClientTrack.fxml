@@ -5,43 +5,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="606.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientTrackController">
+<AnchorPane prefHeight="701.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientTrackController">
    <children>
-      <Label layoutX="315.0" layoutY="30.0" style="-fx-border-color: purple;" text="Track Appointment Approvals" textAlignment="CENTER" textFill="#215c30">
+      <Label layoutX="291.0" layoutY="30.0" style="-fx-border-color: purple;" text="Submit and Track Support Request" textAlignment="CENTER" textFill="#215c30">
          <font>
             <Font name="Sarabun ExtraBold" size="26.0" />
          </font>
       </Label>
       <Button layoutX="885.0" layoutY="35.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="55.0" style="-fx-border-color: red;" text="Back" />
-      <Button layoutX="429.0" layoutY="328.0" mnemonicParsing="false" onAction="#viewAppointmentButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="View Appointment" />
-      <TableView fx:id="appointmentTableView" layoutX="7.0" layoutY="114.0" prefHeight="200.0" prefWidth="976.0">
+      <Button layoutX="432.0" layoutY="631.0" mnemonicParsing="false" onAction="#viewRequestButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="View Requests" />
+      <TableView fx:id="requestTableView" layoutX="12.0" layoutY="409.0" prefHeight="200.0" prefWidth="976.0">
          <columns>
-            <TableColumn fx:id="appointmentDateTableColumn" prefWidth="108.0" text="Appintment Date" />
-            <TableColumn fx:id="timeSlotTableColumn" prefWidth="107.0" text="Time Slot" />
-            <TableColumn fx:id="meetingTypeTableColumn" prefWidth="117.0" text="Meeting Type" />
-            <TableColumn fx:id="phoneNumberTableColumn" prefWidth="159.0" text="Phone Number" />
-            <TableColumn fx:id="meetingNotesTableColumn" prefWidth="147.0" text="Meeting Notes" />
-            <TableColumn fx:id="locationTableColumn" prefWidth="209.0" text="Location" />
-            <TableColumn fx:id="statusTableColumn" prefWidth="131.0" text="Status" />
+            <TableColumn fx:id="appointmentDateTableColumn" prefWidth="190.0" text="Appintment Date" />
+            <TableColumn fx:id="timeSlotTableColumn" prefWidth="203.0" text="Time Slot" />
+            <TableColumn fx:id="requestTypeTableColumn" prefWidth="253.0" text="Request Type" />
+            <TableColumn fx:id="contactMethodTableColumn" prefWidth="329.0" text="Contact Method" />
          </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="303.0" layoutY="370.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Priority Level">
+      <Label alignment="CENTER" layoutX="48.0" layoutY="130.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Priority Level">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="priorityLevelComboBox" layoutX="538.0" layoutY="372.0" prefHeight="29.0" prefWidth="150.0" />
-      <Button layoutX="432.0" layoutY="531.0" mnemonicParsing="false" onAction="#requestButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="Request" />
-      <Label alignment="CENTER" layoutX="303.0" layoutY="413.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Supporting Details">
+      <ComboBox fx:id="priorityLevelComboBox" layoutX="273.0" layoutY="130.0" prefHeight="29.0" prefWidth="150.0" />
+      <Button layoutX="433.0" layoutY="347.0" mnemonicParsing="false" onAction="#submitRequestButtonOnAction" prefHeight="29.0" prefWidth="133.0" style="-fx-border-color: green;" text="Submit Request" />
+      <Label alignment="CENTER" layoutX="565.0" layoutY="130.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Supporting Details">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="detailsTextField" layoutX="538.0" layoutY="413.0" prefHeight="74.0" prefWidth="150.0" />
+      <TextArea fx:id="detailsTextArea" layoutX="565.0" layoutY="169.0" prefHeight="149.0" prefWidth="385.0" />
+      <Label alignment="CENTER" layoutX="48.0" layoutY="213.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Contact Method">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="contactMethodComboBox" layoutX="273.0" layoutY="213.0" prefHeight="29.0" prefWidth="150.0" />
+      <Label alignment="CENTER" layoutX="48.0" layoutY="285.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Request Type">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="requestTypeComboBox" layoutX="273.0" layoutY="285.0" prefHeight="29.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
