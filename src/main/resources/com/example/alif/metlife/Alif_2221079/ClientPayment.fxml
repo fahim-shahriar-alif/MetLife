@@ -13,12 +13,12 @@
           <Font name="Sarabun ExtraBold" size="26.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="128.0" layoutY="155.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Pollicy Number">
+    <Label alignment="CENTER" layoutX="128.0" layoutY="128.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Plan ID">
         <font>
           <Font name="SansSerif Bold" size="14.0" />
         </font>
     </Label>
-    <TextField fx:id="policyNumberTextField" layoutX="419.0" layoutY="155.0" prefHeight="29.0" prefWidth="164.0" />
+    <TextField fx:id="policyNumberTextField" layoutX="419.0" layoutY="128.0" prefHeight="29.0" prefWidth="164.0" />
     <Label alignment="CENTER" layoutX="128.0" layoutY="214.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Premium Amount">
         <font>
           <Font name="SansSerif Bold" size="14.0" />
@@ -43,4 +43,9 @@
         </font>
     </Button>
     <Button layoutX="583.0" layoutY="40.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
+   <Button layoutX="320.0" layoutY="166.0" mnemonicParsing="false" onAction="#loadButtonOnAction" prefHeight="29.0" prefWidth="60.0" style="-fx-border-color: green;" text="LOAD">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font>
+   </Button>
 </AnchorPane>

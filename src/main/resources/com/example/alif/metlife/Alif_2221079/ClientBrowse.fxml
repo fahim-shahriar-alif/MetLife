@@ -9,20 +9,21 @@
 
 <AnchorPane prefHeight="552.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.ClientBrowseController">
    <children>
-      <Label layoutX="326.0" layoutY="40.0" style="-fx-border-color: purple;" text=" Browse and Purchase Plans ">
+      <Label layoutX="326.0" layoutY="40.0" style="-fx-border-color: purple;" text=" Browse and Purchase Policies ">
          <font>
             <Font name="Sarabun ExtraBold" size="26.0" />
          </font>
       </Label>
       <TableView fx:id="planTableView" layoutX="81.0" layoutY="153.0" prefHeight="258.0" prefWidth="824.0">
         <columns>
-          <TableColumn fx:id="planNameColumn" prefWidth="244.0" text="Plan Name" />
-            <TableColumn fx:id="premiumColumnView" prefWidth="176.0" text="Premium   (BDT)" />
-            <TableColumn fx:id="coverageColumnView" prefWidth="206.0" text="Coverage   (BDT)" />
-            <TableColumn fx:id="termColumnView" prefWidth="197.0" text="Term" />
+            <TableColumn fx:id="planIDColumn" prefWidth="99.0" text="Plan ID" />
+          <TableColumn fx:id="planNameColumn" prefWidth="198.0" text="Plan Name" />
+            <TableColumn fx:id="premiumColumnView" prefWidth="189.0" text="Premium   (BDT)" />
+            <TableColumn fx:id="coverageColumnView" prefWidth="207.0" text="Coverage   (BDT)" />
+            <TableColumn fx:id="termColumnView" prefWidth="130.0" text="Term" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="353.0" layoutY="99.0" prefHeight="15.0" prefWidth="280.0" style="-fx-border-color: purple;" text="Please Select a Plan">
+      <Label alignment="CENTER" layoutX="353.0" layoutY="99.0" prefHeight="15.0" prefWidth="280.0" style="-fx-border-color: purple;" text="Please Select a Policy">
          <font>
             <Font name="Sarabun ExtraBold" size="18.0" />
          </font>

@@ -1,105 +1,182 @@
 package com.example.alif.metlife.Alif_2221079;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.Optional;
-import java.util.stream.IntStream;
+import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientPaymentController {
-    public TextField policyNumberTextField;
-    public TextField premiumAmountTextField;
-    public ComboBox<String> selectMonthComboBox;
-    public ComboBox<String> selectYearComboBox;
 
+    @FXML
+    private TextField policyNumberTextField;
+
+    @FXML
+    private TextField premiumAmountTextField;
+
+    @FXML
+    private ComboBox<String> selectMonthComboBox;
+
+    @FXML
+    private ComboBox<String> selectYearComboBox;
+
+    private List<PurchasedPlan> purchasedPlans;
+
+    @FXML
     public void initialize() {
-        LocalDate now = LocalDate.now();
-        int currentYear = now.getYear();
-        Month currentMonth = now.getMonth();
-
-        IntStream.range(currentYear, currentYear + 5)
-                .forEach(year -> selectYearComboBox.getItems().add(String.valueOf(year)));
-
-
-        selectYearComboBox.setOnAction(e -> {
-            selectMonthComboBox.getItems().clear();
-            int selectedYear = Integer.parseInt(selectYearComboBox.getValue());
-            Month[] months = Month.values();
-            for (Month month : months) {
-                if (selectedYear > currentYear || month.getValue() >= currentMonth.getValue()) {
-                    selectMonthComboBox.getItems().add(month.name());
-                }
-            }
-        });
+        String[] months = {"January", "February", "March", "April", "May", "June", 
+                          "July", "August", "September", "October", "November", "December"};
+        selectMonthComboBox.getItems().addAll(months);
+        
+        int currentYear = LocalDate.now().getYear();
+        selectYearComboBox.getItems().addAll(
+            String.valueOf(currentYear),
+            String.valueOf(currentYear + 1)
+        );
+        
+        loadPurchasedPlans();
     }
 
-
-    public void setPlanDetails(ClientBrowseController.Plan selectedPlan) {
-
-        policyNumberTextField.setText("Policy #" + selectedPlan.getPlanName());
-        premiumAmountTextField.setText(selectedPlan.getPremium());
-    }
-
-    public void payButtonOnAction(ActionEvent actionEvent) {
-        String policyNumber = policyNumberTextField.getText();
-        String premium = premiumAmountTextField.getText();
-        String selectedMonth = selectMonthComboBox.getValue();
-        String selectedYear = selectYearComboBox.getValue();
-
-        if (policyNumber.isEmpty() || premium.isEmpty() || selectedMonth == null || selectedYear == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Incomplete Information");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill all the fields before proceeding.");
-            alert.showAndWait();
+    @FXML
+    public void loadButtonOnAction(ActionEvent event) {
+        String policyId = policyNumberTextField.getText().trim();
+        if (policyId.isEmpty()) {
+            showAlert("Error", "Please enter a policy ID");
             return;
         }
 
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Confirm Payment");
-        confirmAlert.setHeaderText("Please confirm your payment details");
-        confirmAlert.setContentText("Policy Number: " + policyNumber +
-                "\nPremium Amount: " + premium +
-                "\nMonth: " + selectedMonth +
-                "\nYear: " + selectedYear);
+        PurchasedPlan plan = purchasedPlans.stream()
+            .filter(p -> p.getPlanID().equals(policyId))
+            .findFirst()
+            .orElse(null);
 
-        ButtonType confirm = new ButtonType("Confirm");
-        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        confirmAlert.getButtonTypes().setAll(confirm, cancel);
-
-        Optional<ButtonType> result = confirmAlert.showAndWait();
-
-        if (result.isPresent() && result.get() == confirm) {
-            Alert success = new Alert(Alert.AlertType.INFORMATION);
-            success.setTitle("Payment Status");
-            success.setHeaderText(null);
-            success.setContentText("Payment Successful");
-            success.showAndWait();
-        } else {
-            Alert cancelled = new Alert(Alert.AlertType.INFORMATION);
-            cancelled.setTitle("Payment Status");
-            cancelled.setHeaderText(null);
-            cancelled.setContentText("Cancelled");
-            cancelled.showAndWait();
+        if (plan == null) {
+            showAlert("Error", "No plan found with the given policy ID");
+            return;
         }
+
+        premiumAmountTextField.setText(plan.getPremium());
     }
 
-    public void backButtonOnAction(ActionEvent actionEvent) {
+    @FXML
+    public void payButtonOnAction(ActionEvent event) {
+        String policyId = policyNumberTextField.getText().trim();
+        String premiumAmount = premiumAmountTextField.getText().trim();
+        String selectedMonth = selectMonthComboBox.getValue();
+        String selectedYear = selectYearComboBox.getValue();
+
+        if (policyId.isEmpty() || premiumAmount.isEmpty() || 
+            selectedMonth == null || selectedYear == null) {
+            showAlert("Error", "Please fill in all fields");
+            return;
+        }
+
+        PurchasedPlan plan = purchasedPlans.stream()
+            .filter(p -> p.getPlanID().equals(policyId))
+            .findFirst()
+            .orElse(null);
+
+        if (plan == null) {
+            showAlert("Error", "Invalid policy ID");
+            return;
+        }
+
+        int month = getMonthNumber(selectedMonth);
+        int year = Integer.parseInt(selectedYear);
+        
+        if (plan.isMonthPaid(year, month)) {
+            showAlert("Error", "This month has already been paid");
+            return;
+        }
+
+        plan.addPayment(new PurchasedPlan.PaymentRecord(
+            year, month, premiumAmount, "Paid"
+        ));
+
+        savePurchasedPlans();
+
+        showAlert("Success", "Payment successful for " + selectedMonth + " " + selectedYear);
+    }
+
+    @FXML
+    public void backButtonOnAction(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ClientDash.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ClientDash.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Policy Holder Dashboard");
+            stage.setTitle("Client Dashboard");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadPurchasedPlans() {
+        purchasedPlans = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("purchased_plans.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                if (parts.length >= 5) {
+                    PurchasedPlan plan = new PurchasedPlan(
+                        parts[0],
+                        parts[1],
+                        parts[2],
+                        parts[3],
+                        parts[4]
+                    );
+                    purchasedPlans.add(plan);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void savePurchasedPlans() {
+        try (java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter("purchased_plans.txt"))) {
+            for (PurchasedPlan plan : purchasedPlans) {
+                writer.write(plan.getPlanID() + "|" +
+                           plan.getPlanName() + "|" +
+                           plan.getPremium() + "|" +
+                           plan.getCoverage() + "|" +
+                           plan.getTerm());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private int getMonthNumber(String monthName) {
+        String[] months = {"January", "February", "March", "April", "May", "June", 
+                          "July", "August", "September", "October", "November", "December"};
+        for (int i = 0; i < months.length; i++) {
+            if (months[i].equals(monthName)) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
