@@ -43,6 +43,15 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
         }
+        else if (username.equals("HR") && password.equals("rafi")) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InzamamulHoque_1910014/HRManagerDashboardView.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) usernameTextField.getScene().getWindow();
+            stage.setTitle("HR Dash");
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
         else {
             messageLabel.setText("Invalid Username or Password. Please try again.");
         }
