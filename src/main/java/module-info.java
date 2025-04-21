@@ -10,6 +10,6 @@ module com.example.alif.metlife {
     exports com.example.alif.metlife.Alif_2221079;
     opens com.example.alif.metlife.Alif_2221079 to javafx.fxml;
 
-    exports com.example.alif.metlife.InzamamulHoque_1910014;
-    opens com.example.alif.metlife.InzamamulHoque_1910014 to javafx.fxml;
+    exports com.example.alif.metlife.inzamamulhoque_1910014;
+    opens com.example.alif.metlife.inzamamulhoque_1910014 to javafx.fxml;
 }

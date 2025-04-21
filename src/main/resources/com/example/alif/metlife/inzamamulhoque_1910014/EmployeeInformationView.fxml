@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.inzamamulhoque_1910014.EmployeeInformationViewController">
+   <children>
+      <TabPane prefHeight="394.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="addNewEmployeeInformationsTab" text="Add new employee informations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="515.0">
+                     <children>
+                        <TextField fx:id="employeeNameTextField" layoutX="34.0" layoutY="14.0" promptText="Employee  Name:" />
+                        <TextField fx:id="employeeIDTextField" layoutX="34.0" layoutY="58.0" promptText="Employee  ID:" />
+                        <TextField fx:id="employeeAddressTextField" layoutX="34.0" layoutY="105.0" promptText="Employee  Address:" />
+                        <TextField fx:id="employeeContactNoTextField" layoutX="34.0" layoutY="143.0" promptText="Employee  Contact No. :" />
+                        <TextField fx:id="employeeContractDesignationTextField" layoutX="34.0" layoutY="183.0" prefHeight="26.0" prefWidth="187.0" promptText="Employee  Contract Designation :" />
+                        <DatePicker fx:id="employeeJoiningDatePicker" layoutX="40.0" layoutY="220.0" promptText="Employee Joining Date:" />
+                        <Button layoutX="473.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" text="Back to Dashboard" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="checkExistentEmployeeInformationsTab" text="Check existent employee informations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="inputEmployeeNameTextField" layoutX="14.0" layoutY="14.0" promptText="Employee  Name:" />
+                        <TextField fx:id="inputEmployeeIDTextField" layoutX="14.0" layoutY="52.0" promptText="Employee  ID:" />
+                        <TableView fx:id="employeeInformationsTableView" layoutY="152.0" prefHeight="200.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="employeeNameTableCloumn" prefWidth="98.4000244140625" text="Employee Name" />
+                            <TableColumn fx:id="employeeIDTableCloumn" prefWidth="76.0" text="Employee ID" />
+                              <TableColumn fx:id="employeeContactNoTableColumn" prefWidth="130.4000244140625" text="Employee Contact No." />
+                              <TableColumn fx:id="employeeContractTableColumn" prefWidth="148.79998779296875" text="Employment Contract" />
+                              <TableColumn fx:id="employeeAddressTableCloumn" prefWidth="141.5999755859375" text="Employee Address" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="22.0" layoutY="87.0" mnemonicParsing="false" onAction="#showInformationsButtonOnAction" text="Show Informations" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="employeeComplaintsTab" text="Employee Complaints">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="enterEmployeeNameTextField" layoutX="14.0" layoutY="14.0" promptText="Employee  Name:" />
+                        <TextField fx:id="enterEmployeeIDTextField" layoutX="14.0" layoutY="52.0" promptText="Employee  ID:" />
+                        <Label fx:id="complainBoxLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="85.0" prefHeight="223.0" prefWidth="556.0" style="-fx-background-color: aqua;" text="Employee Complaints:" />
+                        <Button fx:id="submitButtonOnAction" layoutX="518.0" layoutY="318.0" mnemonicParsing="false" text="Submit" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
