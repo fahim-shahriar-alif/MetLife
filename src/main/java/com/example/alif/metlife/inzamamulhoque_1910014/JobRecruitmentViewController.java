@@ -2,9 +2,9 @@ package com.example.alif.metlife.inzamamulhoque_1910014;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-import javax.swing.text.TableView;
 
 public class JobRecruitmentViewController
 {

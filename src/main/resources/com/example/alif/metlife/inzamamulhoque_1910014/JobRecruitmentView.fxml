@@ -7,8 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.inzamamulhoque_1910014.JobRecruitmentViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.inzamamulhoque_1910014.JobRecruitmentViewController">
    <children>
       <Label layoutX="178.0" layoutY="10.0" text="Add job recruitment" />
       <TextField fx:id="jobPositionTextField" layoutX="28.0" layoutY="32.0" promptText="Job Position " />
@@ -16,7 +15,7 @@
       <TextField fx:id="jobRequirementTextField" layoutX="28.0" layoutY="110.0" promptText="Job Requirement " />
       <TextField fx:id="jobSalaryTextField" layoutX="28.0" layoutY="145.0" promptText="Salary range" />
       <Button layoutX="257.0" layoutY="145.0" mnemonicParsing="false" onAction="#showInformationsButtonOnAction" text="Show Informations" />
-      <TableView fx:id="jobRecruitmentTableView" layoutX="14.0" layoutY="186.0" prefHeight="200.0" prefWidth="500.0">
+      <TableView fx:id="jobRecruitmentTableView" layoutX="50.0" layoutY="186.0" prefHeight="200.0" prefWidth="500.0">
          <columns>
             <TableColumn fx:id="jobPositionTableCloumn" prefWidth="107.99996376037598" text="Job Position " />
             <TableColumn fx:id="jobDescriptionTableCloumn" prefWidth="100.0" text="Job Description " />
