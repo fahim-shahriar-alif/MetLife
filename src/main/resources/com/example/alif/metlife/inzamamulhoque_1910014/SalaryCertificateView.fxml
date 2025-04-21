@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.inzamamulhoque_1910014.SalaryCertificateViewController">
+   <children>
+      <Label layoutX="234.0" layoutY="5.0" text="Performance Score" />
+      <TextField fx:id="employeeNameInputTextField" layoutX="38.0" layoutY="23.0" promptText="Employee Name" />
+      <TextField fx:id="employeeIDInputTextField1" layoutX="38.0" layoutY="59.0" promptText="Employee ID:" />
+      <TextField fx:id="departmentNameTextField" layoutX="38.0" layoutY="124.0" prefHeight="26.0" prefWidth="178.0" promptText="Department Name:" />
+      <TableView fx:id="trainingWorkshopTableView" layoutX="23.0" layoutY="203.0" prefHeight="206.0" prefWidth="553.0">
+         <columns>
+            <TableColumn fx:id="employeeNameTableCloumn" prefWidth="100.0" text="Employee Name" />
+            <TableColumn fx:id="employeeIDTableCloumn" prefWidth="82.4000244140625" text="Employee ID" />
+            <TableColumn fx:id="employeeDesignationTableColumn" prefWidth="137.5999755859375" text="Employee Designation" />
+            <TableColumn fx:id="departmentNameTableColumn" prefWidth="114.4000244140625" text="Department Name" />
+            <TableColumn fx:id="employeeSalaryTableColumn" prefWidth="114.4000244140625" text="Employee Salary" />
+         </columns>
+      </TableView>
+      <Button layoutX="300.0" layoutY="104.0" mnemonicParsing="false" onAction="#showInformationsButtonOnAction" text="Show Informations" />
+      <Button layoutX="482.0" layoutY="23.0" mnemonicParsing="false" onAction="#backToDashboardButtonOnAction" text="Back to Dashboard" />
+      <TextField fx:id="employeeDesignationTextField" layoutX="38.0" layoutY="91.0" promptText="Employee Designation:" />
+      <TextField fx:id="employeeSalaryTextField" layoutX="38.0" layoutY="159.0" prefHeight="26.0" prefWidth="178.0" promptText="Employee Salary" />
+      <Button layoutX="300.0" layoutY="46.0" mnemonicParsing="false" onAction="#downloadSalaryCertificateButtonOnAction" text="Download Salary Certificate" />
+   </children>
+</AnchorPane>

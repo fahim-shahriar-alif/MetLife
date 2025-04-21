@@ -44,7 +44,7 @@ public class LoginController {
             stage.show();
         }
         else if (username.equals("HR") && password.equals("rafi")) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InzamamulHoque_1910014/HRManagerDashboardView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("inzamamulhoque_1910014/HRManagerDashboardView.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) usernameTextField.getScene().getWindow();
             stage.setTitle("HR Dash");
