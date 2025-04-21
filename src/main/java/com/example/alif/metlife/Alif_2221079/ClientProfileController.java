@@ -46,7 +46,6 @@ public class ClientProfileController implements Initializable {
 
                 if (date.isAfter(maxDate)) {
                     setDisable(true);
-                    setStyle("-fx-background-color: #ffc0cb;");
                 }
             }
         });
@@ -67,20 +66,18 @@ public class ClientProfileController implements Initializable {
             return;
         }
 
-        // Validate phone number
         if (!phone.matches("\\d+")) {
             showAlert("Invalid Phone", "Phone number must contain only digits.");
             return;
         }
 
-        // Validate DOB (18+ check)
         LocalDate today = LocalDate.now();
         if (dob.isAfter(today.minusYears(18))) {
             showAlert("Invalid DOB", "Client must be at least 18 years old.");
             return;
         }
 
-        // Validate NID starts with year of birth
+
         String birthYear = String.valueOf(dob.getYear());
         if (!nid.startsWith(birthYear)) {
             showAlert("Invalid NID", "NID must start with birth year: " + birthYear);
@@ -135,7 +132,7 @@ public class ClientProfileController implements Initializable {
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION); // Can customize if needed
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

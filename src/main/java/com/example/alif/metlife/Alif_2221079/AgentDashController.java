@@ -1,6 +1,6 @@
 package com.example.alif.metlife.Alif_2221079;
 
-import com.example.alif.metlife.LoginApplication;
+import com.example.alif.metlife.MetLifeApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -108,7 +108,7 @@ public class AgentDashController {
     }
 
     public void logoutButtonOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(LoginApplication.class.getResource("Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(MetLifeApplication.class.getResource("Login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
