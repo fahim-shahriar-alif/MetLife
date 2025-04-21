@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewReportsController">
+<AnchorPane prefHeight="677.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewReportsController">
    <children>
-      <Label layoutX="360.0" layoutY="34.0" text="View Performance Reports">
-         <font>
-            <Font name="Courier New Bold" size="31.0" />
-         </font>
-      </Label>
 
       <TableView fx:id="reportsTableView" layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0">
          <columns>
@@ -22,25 +21,22 @@
             <TableColumn fx:id="actionsColumn" prefWidth="100.0" text="Actions" />
          </columns>
       </TableView>
-
-      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#generateReportButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Generate Report">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#exportReportButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Export Report">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Button layoutX="537.0" layoutY="583.0" mnemonicParsing="false" onAction="#searchReportButtonOnAction" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: Green;" text="Search Report">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="reportIDTextField" layoutX="324.0" layoutY="589.0" prefHeight="29.0" prefWidth="164.0" promptText="Report ID" />
+      <Button layoutX="834.0" layoutY="33.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
+      <Button layoutX="362.0" layoutY="524.0" mnemonicParsing="false" onAction="#viewReportStatusButtonOnAction" prefHeight="36.0" prefWidth="283.0" style="-fx-border-color: green;" text="View Report Status">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="357.0" layoutY="26.0" style="-fx-border-color: purple;" text="View Performance Reports">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
+         </font>
+      </Label>
    </children>
-</AnchorPane> 
+</AnchorPane>

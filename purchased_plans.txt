@@ -1,1 +1,2 @@
 P001|Basic Plan|500|2,00,000|10 years
+P002|Standard Plan|800|5,00,000|15 years

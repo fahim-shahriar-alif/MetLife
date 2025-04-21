@@ -6,13 +6,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class AgentViewClientsController {
-    public TextField searchIDTextField;
     public TableView clientsTableView;
     public TableColumn nameTableColumn;
     public TableColumn contactTableColumn;
     public TableColumn policyTypeTableColumn;
     public TableColumn statusTableColumn;
-    public TableColumn actionsTableColumn;
+    public TableColumn clientIdTableColumn;
+    public TextField clientIDTextField;
 
     public void searchClientButtonOnAction(ActionEvent actionEvent) {
     }

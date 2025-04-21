@@ -1,46 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentModifyPoliciesController">
+<AnchorPane prefHeight="676.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentModifyPoliciesController">
    <children>
-      <Label layoutX="360.0" layoutY="34.0" text="Modify Insurance Policies">
-         <font>
-            <Font name="Courier New Bold" size="31.0" />
-         </font>
-      </Label>
 
-      <TableView fx:id="policiesTableView" layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0">
+      <TableView fx:id="policiesTableView" layoutX="53.0" layoutY="106.0" prefHeight="400.0" prefWidth="824.0">
          <columns>
             <TableColumn fx:id="policyIdColumn" prefWidth="100.0" text="Policy ID" />
-            <TableColumn fx:id="clientNameColumn" prefWidth="150.0" text="Client Name" />
             <TableColumn fx:id="policyTypeColumn" prefWidth="150.0" text="Policy Type" />
             <TableColumn fx:id="coverageAmountColumn" prefWidth="150.0" text="Coverage Amount" />
-            <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
-            <TableColumn fx:id="actionsColumn" prefWidth="100.0" text="Actions" />
+            <TableColumn fx:id="premiumAmountColumn" prefWidth="141.37493896484375" text="Premium Amount" />
+            <TableColumn fx:id="detailsColumn" prefWidth="256.625" text="Details" />
          </columns>
       </TableView>
-
-      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#searchPolicyButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Search Policy">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#updatePolicyButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Update Policy">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Button layoutX="532.0" layoutY="586.0" mnemonicParsing="false" onAction="#searchPolicyButtonOnAction" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: Green;" text="Search Policy">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="clientIDTextField" layoutX="321.0" layoutY="591.0" prefHeight="29.0" prefWidth="164.0" promptText="Policy ID" />
+      <Button layoutX="806.0" layoutY="32.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
+      <Button layoutX="361.0" layoutY="529.0" mnemonicParsing="false" onAction="#viewInsuranceButtonOnAction" prefHeight="36.0" prefWidth="283.0" style="-fx-border-color: green;" text="View Insurance">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="345.0" layoutY="28.0" style="-fx-border-color: purple;" text="Modify Insurance Policies">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
+         </font>
+      </Label>
    </children>
-</AnchorPane> 
+</AnchorPane>

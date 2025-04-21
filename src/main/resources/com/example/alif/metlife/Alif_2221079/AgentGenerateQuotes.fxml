@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentGenerateQuotesController">
    <children>
-      <Label layoutX="360.0" layoutY="34.0" text="Generate Insurance Quotes">
+      <ComboBox fx:id="policyTypeComboBox" layoutX="374.0" layoutY="106.0" promptText="Select Policy Type" />
+      <TextField fx:id="coverageAmountTextField" layoutX="360.0" layoutY="341.0" promptText="Enter Amount" />
+      <TextField fx:id="ageTextField" layoutX="378.0" layoutY="234.0" prefHeight="26.0" prefWidth="139.0" promptText="Enter Age" />
+      <ComboBox fx:id="healthStatusComboBox" layoutX="364.0" layoutY="291.0" promptText="Select Health Status" />
+      <ComboBox fx:id="selectFrequencyComboBox" layoutX="373.0" layoutY="177.0" promptText="Select Frequency" />
+      <Button layoutX="375.0" layoutY="513.0" mnemonicParsing="false" onAction="#generateQuoteButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Generate Quote">
          <font>
-            <Font name="Courier New Bold" size="31.0" />
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="313.0" layoutY="29.0" prefHeight="40.0" prefWidth="334.0" style="-fx-border-color: purple;" text="Generate Insurance Quotes">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
          </font>
       </Label>
-
-      <GridPane layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0" style="-fx-hgap: 10; -fx-vgap: 10;">
-         <children>
-            <Label text="Policy Type" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <ComboBox promptText="Select Policy Type" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2" />
-
-            <Label text="Coverage Amount" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <TextField promptText="Enter Amount" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2" />
-
-            <Label text="Age" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <TextField promptText="Enter Age" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="2" />
-
-            <Label text="Health Status" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <ComboBox promptText="Select Health Status" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" />
-
-            <Label text="Payment Frequency" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <ComboBox promptText="Select Frequency" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="2" />
-         </children>
-      </GridPane>
-
-      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#generateQuoteButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Generate Quote">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Label alignment="CENTER" layoutX="94.0" layoutY="172.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Payment Frequency">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="845.0" layoutY="34.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-border-color: red;" text="Back">
+         <font>
+            <Font name="SansSerif Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="96.0" layoutY="105.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Policy Type">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="92.0" layoutY="231.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Age">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="93.0" layoutY="290.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Health Status">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="94.0" layoutY="341.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Coverage Amount">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
-</AnchorPane> 
+</AnchorPane>

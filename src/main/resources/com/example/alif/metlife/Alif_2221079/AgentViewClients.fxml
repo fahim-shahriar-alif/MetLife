@@ -8,35 +8,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewClientsController">
+<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewClientsController">
    <children>
 
-      <TableView fx:id="clientsTableView" layoutX="107.0" layoutY="108.0" prefHeight="400.0" prefWidth="750.0">
+      <TableView fx:id="clientsTableView" layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0">
          <columns>
-            <TableColumn fx:id="nameTableColumn" prefWidth="150.0" text="Name" />
+            <TableColumn fx:id="clientIdTableColumn" prefWidth="138.66011810302734" text="Client ID" />
+            <TableColumn fx:id="nameTableColumn" prefWidth="111.33992004394531" text="Name" />
             <TableColumn fx:id="contactTableColumn" prefWidth="150.0" text="Contact" />
-            <TableColumn fx:id="policyTypeTableColumn" prefWidth="187.27932739257812" text="Policy Type" />
-            <TableColumn fx:id="statusTableColumn" prefWidth="101.72064208984375" text="Status" />
-            <TableColumn fx:id="actionsTableColumn" prefWidth="160.33990478515625" text="Actions" />
+            <TableColumn fx:id="policyTypeTableColumn" prefWidth="202.46728515625" text="Policy Type" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="146.53271484375" text="Status" />
          </columns>
       </TableView>
-      <Button layoutX="391.0" layoutY="528.0" mnemonicParsing="false" onAction="#searchClientButtonOnAction" prefHeight="29.0" prefWidth="144.0" style="-fx-border-color: purple;" text="Search Client">
-         <font>
-            <Font name="Georgia Bold" size="14.0" />
-         </font>
-      </Button>
-      <Label contentDisplay="CENTER" layoutX="373.0" layoutY="29.0" style="-fx-border-color: purple;" text="View and Manage Clients">
+      <Label contentDisplay="CENTER" layoutX="341.0" layoutY="38.0" style="-fx-border-color: purple;" text="View and Manage Clients">
          <font>
             <Font name="Sarabun ExtraBold" size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="searchIDTextField" layoutX="133.0" layoutY="527.0" prefHeight="29.0" prefWidth="164.0" promptText="Client ID">
+      <Button layoutX="362.0" layoutY="520.0" mnemonicParsing="false" onAction="#searchClientButtonOnAction" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: Green;" text="Search Client">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Georgia Bold" size="14.0" />
          </font>
-      </TextField>
-      <Button layoutX="846.0" layoutY="36.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
-      <Button layoutX="712.0" layoutY="530.0" mnemonicParsing="false" onAction="#viewClientButtonOnAction" prefHeight="29.0" prefWidth="144.0" style="-fx-border-color: purple;" text="View Client">
+      </Button>
+      <TextField fx:id="clientIDTextField" layoutX="137.0" layoutY="523.0" prefHeight="29.0" prefWidth="164.0" promptText="Client ID" />
+      <Button layoutX="814.0" layoutY="40.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
+      <Button layoutX="705.0" layoutY="519.0" mnemonicParsing="false" onAction="#viewClientButtonOnAction" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: green;" text="View Client">
          <font>
             <Font name="Georgia Bold" size="14.0" />
          </font>

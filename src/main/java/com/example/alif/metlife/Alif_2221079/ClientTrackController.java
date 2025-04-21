@@ -101,10 +101,10 @@ public class ClientTrackController {
                 if (parts.length < 4) continue;
 
                 ObservableList<String> row = FXCollections.observableArrayList();
-                row.add(parts[0]); // Appointment Date
-                row.add(parts[1]); // Time Slot
-                row.add(parts[2]); // Request Type
-                row.add(parts[3]); // Contact Method
+                row.add(parts[0]);
+                row.add(parts[1]);
+                row.add(parts[2]);
+                row.add(parts[3]);
 
                 data.add(row);
             }

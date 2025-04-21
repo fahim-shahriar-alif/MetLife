@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewScheduleController">
+<AnchorPane prefHeight="711.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentViewScheduleController">
    <children>
-      <Label layoutX="360.0" layoutY="34.0" text="Manage Appointments">
-         <font>
-            <Font name="Courier New Bold" size="31.0" />
-         </font>
-      </Label>
 
       <TableView fx:id="appointmentsTableView" layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0">
          <columns>
@@ -22,25 +21,22 @@
             <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
          </columns>
       </TableView>
-
-      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#newAppointmentButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="New Appointment">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#updateAppointmentButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Update Appointment">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Button layoutX="509.0" layoutY="608.0" mnemonicParsing="false" onAction="#searchClientButtonOnAction" prefHeight="36.0" prefWidth="199.0" style="-fx-border-color: Green;" text="Search Appoointment">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="clientIDTextField" layoutX="303.0" layoutY="610.0" prefHeight="29.0" prefWidth="164.0" promptText="Appoimntment ID" />
+      <Button layoutX="878.0" layoutY="51.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="51.0" style="-fx-border-color: red;" text="Back" />
+      <Button layoutX="361.0" layoutY="539.0" mnemonicParsing="false" onAction="#viewClientPaymentStatusButtonOnAction" prefHeight="36.0" prefWidth="283.0" style="-fx-border-color: green;" text="View Appointment Status">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="357.0" layoutY="44.0" style="-fx-border-color: purple;" text="Manage Appointments">
+         <font>
+            <Font name="Sarabun ExtraBold" size="26.0" />
+         </font>
+      </Label>
    </children>
-</AnchorPane> 
+</AnchorPane>

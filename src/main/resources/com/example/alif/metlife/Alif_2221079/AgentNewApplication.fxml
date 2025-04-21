@@ -1,57 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="609.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentNewApplicationController">
+<AnchorPane prefHeight="616.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alif.metlife.Alif_2221079.AgentNewApplicationController">
    <children>
-      <Label layoutX="360.0" layoutY="34.0" text="Process New Application">
+      <Label layoutX="334.0" layoutY="20.0" style="-fx-border-color: purple;" text="New Appicant Details" textAlignment="CENTER" textFill="#215c30">
          <font>
-            <Font name="Courier New Bold" size="31.0" />
+            <Font name="Sarabun ExtraBold" size="26.0" />
          </font>
       </Label>
-
-      <GridPane layoutX="107.0" layoutY="100.0" prefHeight="400.0" prefWidth="750.0" style="-fx-hgap: 10; -fx-vgap: 10;">
-         <children>
-            <Label text="Client Information" GridPane.columnIndex="0" GridPane.rowIndex="0">
-               <font>
-                  <Font name="Georgia Bold" size="16.0" />
-               </font>
-            </Label>
-            <TextField promptText="Client ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#searchClientButtonOnAction" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-
-            <Label text="Policy Type" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <ComboBox promptText="Select Policy Type" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2" />
-
-            <Label text="Coverage Amount" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <TextField promptText="Enter Amount" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="2" />
-
-            <Label text="Premium Amount" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <TextField promptText="Enter Premium" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" />
-
-            <Label text="Payment Frequency" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <ComboBox promptText="Select Frequency" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="2" />
-
-            <Label text="Start Date" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="2" />
-         </children>
-      </GridPane>
-
-      <HBox layoutX="107.0" layoutY="520.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Submit Application">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="39.0" prefWidth="150.0" style="-fx-border-color: purple;" text="Back to Dashboard">
-               <font>
-                  <Font name="Georgia Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="118.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Name">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="235.0" layoutY="118.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="177.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="NID Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nidTextField" layoutX="235.0" layoutY="177.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="234.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Date of Birth">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="279.0" layoutY="71.0" prefHeight="27.0" prefWidth="366.0" style="-fx-border-color: purple;" text="Please Update Applicants Personal Data">
+         <font>
+            <Font name="Sarabun ExtraBold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dobDatePicker" layoutX="235.0" layoutY="236.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="118.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Phone Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNumberTextField" layoutX="736.0" layoutY="118.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="177.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="E-mail">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailTextField" layoutX="736.0" layoutY="177.0" prefHeight="29.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="515.0" layoutY="234.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Address">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addressTextField" layoutX="736.0" layoutY="234.0" prefHeight="52.0" prefWidth="164.0" />
+      <Button layoutX="383.0" layoutY="294.0" mnemonicParsing="false" onAction="#addNewApplicantButtonOnAction" prefHeight="29.0" prefWidth="158.0" style="-fx-border-color: green;" text="Add New Appicant" />
+      <Button layoutX="818.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="29.0" prefWidth="55.0" style="-fx-border-color: red;" text="Back" />
+      <Label alignment="CENTER" layoutX="24.0" layoutY="386.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Name">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="24.0" layoutY="445.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="NID Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="24.0" layoutY="502.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Date of Birth">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="525.0" layoutY="386.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Phone Number">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="525.0" layoutY="445.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="E-mail">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="525.0" layoutY="502.0" prefHeight="29.0" prefWidth="143.0" style="-fx-border-color: purple;" text="Address">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameViewLabel" layoutX="237.0" layoutY="389.0" prefHeight="29.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Label fx:id="nidViewLabel" layoutX="233.0" layoutY="445.0" prefHeight="29.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Label fx:id="dobViewLabel" layoutX="233.0" layoutY="502.0" prefHeight="29.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Label fx:id="numberViewLabel" layoutX="748.0" layoutY="389.0" prefHeight="29.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Label fx:id="emailViewLabel" layoutX="744.0" layoutY="445.0" prefHeight="29.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Label fx:id="addressViewLabel" layoutX="744.0" layoutY="502.0" prefHeight="52.0" prefWidth="164.0" style="-fx-border-color: lightblue;" />
+      <Button layoutX="367.0" layoutY="562.0" mnemonicParsing="false" onAction="#viewNewApplicantProfileButtonOnAction" prefHeight="29.0" prefWidth="189.0" style="-fx-border-color: yellow;" text="View New Applicant Profile" />
    </children>
-</AnchorPane> 
+</AnchorPane>

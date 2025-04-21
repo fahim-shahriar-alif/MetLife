@@ -143,7 +143,6 @@ public class ClientAppointmentController {
         locationTextField.clear();
     }
 
-    // Inner class as model (since you don't want a separate class)
     public static class Appointment {
         private final String appointmentDate;
         private final String timeSlot;
